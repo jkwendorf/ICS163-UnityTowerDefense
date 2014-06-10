@@ -19,6 +19,7 @@ public class myGUIScript : MonoBehaviour {
 	private bool isExpanded = false;
 
 	private NetworkHelper network_helper;
+	private myLocationScript location_helper;
 
 	// Use this for initialization
 	void Start () {
@@ -31,6 +32,8 @@ public class myGUIScript : MonoBehaviour {
 		}
 
 		network_helper = GameObject.Find("myNetworkHelper").GetComponentInChildren<NetworkHelper>();
+		location_helper = GameObject.Find("myLocation").GetComponentInChildren<myLocationScript>();
+
 
 		current_location = "Current Location: ";
 		tower_location = "Tower Location: ";
@@ -40,7 +43,7 @@ public class myGUIScript : MonoBehaviour {
 		world_password = "World Password";
 		team_name = "Team Name";
 		team_password = "Team Password";
-		code_command = "Code Command";
+		code_command = "Code Command Empty";
 	}
 	
 	// Update is called once per frame
@@ -82,13 +85,15 @@ public class myGUIScript : MonoBehaviour {
 				//network_helper.buildTowerPoint(lat, long, alt);
 
 				// Set the name of the tower location
-				//tower_location = "Tower Location: (" + lat + "," + long + "," + alt + ")";
+				//tower_location = "Tower Location: (" + network_helper.getTowerLat() + "," + network_helper.getTowerLng() + "," + network_helper.getTowerAlt() + ")";
 			}
 
 			if(GUI.Button(new Rect(Screen.width/2, 500, Screen.width/2, 100), "Upload Tower"))
 			{
 				// Upload our input to the server and save the dictionary
 				//network_helper.uploadTowerPoint(world_name, world_password, team_name, team_password);
+
+				tower_location = "Tower Location: ";
 			}
 
 			if(GUI.Button(new Rect(Screen.width/2, 600, Screen.width/2, 100), "Place Bomb"))
@@ -104,24 +109,23 @@ public class myGUIScript : MonoBehaviour {
 			{
 				// Upload our input to the server and save the dictionary
 				//network_helper.uploadBombPoint (world_name, world_password, team_name, team_password);
+
+				bomb_location = "Bomb Location: ";
 			}
 
-			if(GUI.Button(new Rect(Screen.width/2, 800, Screen.width/2, 100), "Store Code"))
+			if(GUI.Button(new Rect(Screen.width/2, 800, Screen.width/2, 100), "Upload Code"))
 			{
-				// Save the code that the user entered
 
-				if(!code_command.Equals ("Code Command"))
+				if(!code_command.Equals ("Code Command Empty"))
 				{
-					//network_helper.enterCode(code_command);
+					// Add our code to the network helper
+					network_helper.enterCode(code_command);
 
-					code_command = "Code Command";
+					// Upload the code and retrieve the updated dictionary
+					//network_helper.uploadCode (world_name, world_password, team_name, team_password);
+						
+					code_command = "Code Command Empty";
 				}
-			}
-
-			if(GUI.Button(new Rect(Screen.width/2, 900, Screen.width/2, 100), "Upload Code"))
-			{
-				// Upload our code and save the dictionary
-				//network_helper.uploadCode (world_name, world_password, team_name, team_password);
 			}
 		}
 	}
