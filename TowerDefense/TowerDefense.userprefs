@@ -1,10 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\myGUIScript.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MyLocation.cs">
     <Files>
+<<<<<<< HEAD
       <File FileName="Assets\Scripts\NetworkHelper.cs" Line="124" Column="22" />
       <File FileName="Assets\Scripts\myLocationScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\myGUIScript.cs" Line="35" Column="48" />
+=======
+      <File FileName="Assets/Scripts/MyLocation.cs" Line="54" Column="3" />
+>>>>>>> origin/master
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
