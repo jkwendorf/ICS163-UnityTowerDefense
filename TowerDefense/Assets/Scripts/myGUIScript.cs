@@ -19,6 +19,7 @@ public class myGUIScript : MonoBehaviour {
 	private bool isExpanded = false;
 
 	private NetworkHelper network_helper;
+	private MyLocation myLocation;
 
 	// Use this for initialization
 	void Start () {
@@ -31,6 +32,9 @@ public class myGUIScript : MonoBehaviour {
 		}
 
 		network_helper = GameObject.Find("myNetworkHelper").GetComponentInChildren<NetworkHelper>();
+
+
+
 
 		current_location = "Current Location: ";
 		tower_location = "Tower Location: ";
@@ -45,6 +49,7 @@ public class myGUIScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		//current_location = "Current Location: " + myLocation.getLat() + ", " + myLocation.getLng();
 
 	}
 
